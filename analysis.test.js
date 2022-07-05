@@ -16,8 +16,13 @@ describe(Analysis, () => {
     expect(analysis.report('Green, Green, Green')).toEqual('Green: 3')
   })
 
-  it("returns a string matching 'Green: 3' when 'Green, Green, Green, Blah' is passed in", () => {
+  it("returns a string matching 'Green: 3' when 'Green, Green, Green, ' is passed in", () => {
     let analysis = new Analysis
-    expect(analysis.report('Green, Green, Green, Blah')).toEqual('Green: 3')
+    expect(analysis.report('Green, Green, Green, ')).toEqual('Green: 3')
+  })
+
+  it("returns a string matching 'Green: 1, Amber: 1' when 'Green, Amber' is passed in", () => {
+    let analysis = new Analysis
+    expect(analysis.report('Green, Amber')).toEqual('Green: 1\nAmber: 1')
   })
 })
