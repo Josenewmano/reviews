@@ -1,7 +1,16 @@
 class Analysis {
 
   report(string) {
-    return `${string.split(', ')[0]}: ${string.split(', ').length}`
+    let green = 0;
+    let array = string.split(', ')
+
+    array.forEach((value) => {
+      if (value === 'Green') {
+        green += 1
+      }
+    })
+
+    return `Green: ${green}`
   }
 }
 

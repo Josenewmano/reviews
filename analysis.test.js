@@ -16,23 +16,8 @@ describe(Analysis, () => {
     expect(analysis.report('Green, Green, Green')).toEqual('Green: 3')
   })
 
-  it("returns a string matching 'Red: 1' when 'Red' is passed in", () => {
+  it("returns a string matching 'Green: 3' when 'Green, Green, Green, Blah' is passed in", () => {
     let analysis = new Analysis
-    expect(analysis.report('Red')).toEqual('Red: 1')
-  })
-
-  it("returns a string matching 'Red: 2' when 'Red, Red' is passed in", () => {
-    let analysis = new Analysis
-    expect(analysis.report('Red, Red')).toEqual('Red: 2')
-  })
-
-  it("returns a string matching 'Amber: 1' when 'Amber' is passed in", () => {
-    let analysis = new Analysis
-    expect(analysis.report('Amber')).toEqual('Amber: 1')
-  })
-
-  it("returns a string matching 'Amber: 2' when 'Amber, Amber' is passed in", () => {
-    let analysis = new Analysis
-    expect(analysis.report('Amber, Amber')).toEqual('Amber: 2')
+    expect(analysis.report('Green, Green, Green, Blah')).toEqual('Green: 3')
   })
 })
