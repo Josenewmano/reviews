@@ -18,4 +18,12 @@ describe(Analysis, () => {
   it("is case insensitive", () => {
     expect(analysis.report('GrEeN, GREEN, green')).toEqual('Green: 3')
   })
+
+  it("is ignores leading and trailing spaces", () => {
+    expect(analysis.report(' GrEeN,    GREEN    , green            ')).toEqual('Green: 3')
+  })
+
+  it("returns 'No results given' if called with an empty string", () => {
+    expect(analysis.report('')).toEqual('No results given')
+  })
 })

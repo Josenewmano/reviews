@@ -6,10 +6,12 @@ class Analysis {
     let red = 0;
     let uncounted = 0;
     let output = []
-    let array = string.split(', ')
+    let array = string.split(',')
+    if(array[0].trim() === "" && array.length === 1) { return 'No results given' }
+
 
     array.forEach((value) => {
-      value = value.toLowerCase()
+      value = value.toLowerCase().trim();
       if (value === 'green') {
         green += 1
       } else if (value === 'amber') {
@@ -25,8 +27,9 @@ class Analysis {
     if(amber > 0) { output.push(`Amber: ${amber}`) }
     if(red > 0) { output.push(`Red: ${red}`) }
     if(uncounted > 0) { output.push(`Uncounted: ${uncounted}`) }
-
+    
     return output.join('\n')
+    
   }
 }
 
