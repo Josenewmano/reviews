@@ -11,7 +11,11 @@ describe(Analysis, () => {
     expect(analysis.report('Green, Amber, Green, Amber')).toEqual('Green: 2\nAmber: 2')
   })
 
-  it("rreturns correct values for input strings for all three scores, and other unrecognised scores", () => {
+  it("returns correct values for input strings for all three scores, and other unrecognised scores", () => {
     expect(analysis.report('Green, Amber, Red, Something else')).toEqual('Green: 1\nAmber: 1\nRed: 1\nUncounted: 1')
+  })
+
+  it("is case insensitive", () => {
+    expect(analysis.report('GrEeN, GREEN, green')).toEqual('Green: 3')
   })
 })

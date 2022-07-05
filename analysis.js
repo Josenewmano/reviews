@@ -9,11 +9,12 @@ class Analysis {
     let array = string.split(', ')
 
     array.forEach((value) => {
-      if (value === 'Green') {
+      value = value.toLowerCase()
+      if (value === 'green') {
         green += 1
-      } else if (value === 'Amber') {
+      } else if (value === 'amber') {
         amber += 1
-      } else if (value === 'Red') {
+      } else if (value === 'red') {
         red += 1
       } else {
         uncounted += 1
