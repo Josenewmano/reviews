@@ -1,7 +1,7 @@
 class Analysis {
 
   report(string) {
-    return `Green: ${string.split(', ').length}`
+    return `${string.split(', ')[0]}: ${string.split(', ').length}`
   }
 }
 
