@@ -1,35 +1,42 @@
 class Analysis {
 
   report(string) {
-    let green = 0;
-    let amber = 0;
-    let red = 0;
-    let uncounted = 0;
-    let output = []
-    let array = string.split(',')
-    if(array[0].trim() === "" && array.length === 1) { return 'No results given' }
+    if(string.trim() === "") { return 'No results given' }
+    this.#resetVariables()
+    this.#updateVariables(string)
+    return this.#returnConstructor()
+  }
 
+  #resetVariables() {
+    this.green = 0;
+    this.amber = 0;
+    this.red = 0;
+    this.uncounted = 0;
+  }
 
-    array.forEach((value) => {
+  #updateVariables(string) {
+    string.split(',').forEach((value) => {
       value = value.toLowerCase().trim();
       if (value === 'green') {
-        green += 1
+        this.green += 1
       } else if (value === 'amber') {
-        amber += 1
+        this.amber += 1
       } else if (value === 'red') {
-        red += 1
+        this.red += 1
       } else {
-        uncounted += 1
+        this.uncounted += 1
       }
     })
+  }
 
-    if(green > 0) { output.push(`Green: ${green}`) }
-    if(amber > 0) { output.push(`Amber: ${amber}`) }
-    if(red > 0) { output.push(`Red: ${red}`) }
-    if(uncounted > 0) { output.push(`Uncounted: ${uncounted}`) }
+  #returnConstructor() {
+    let output = [];
+    if(this.green > 0) { output.push(`Green: ${this.green}`) };
+    if(this.amber > 0) { output.push(`Amber: ${this.amber}`) };
+    if(this.red > 0) { output.push(`Red: ${this.red}`) };
+    if(this.uncounted > 0) { output.push(`Uncounted: ${this.uncounted}`) };
     
     return output.join('\n')
-    
   }
 }
 
