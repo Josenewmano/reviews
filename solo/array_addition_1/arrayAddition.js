@@ -1,9 +1,13 @@
 module.exports = function ArrayAdditionI(arr) { 
   // code goes here  
-  arr.sort();
-  let biggest = arr.pop();
+  let biggest = arr.sort().pop();
   if (arr.length < 2) { return false }
-  if (arr[arr.length-2] + arr[arr.length-1] === biggest) { return true }
+  for (i = 0; i < arr.length; i++) {
+    for (j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === biggest) { return true}
+    }
+  }
+  // if (arr[arr.length-2] + arr[arr.length-1] === biggest) { return true }
   return false
 
 }
