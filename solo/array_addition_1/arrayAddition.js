@@ -1,14 +1,16 @@
 module.exports = function ArrayAdditionI(arr) { 
   // code goes here  
   let biggest = arr.sort(function(a, b){return a-b}).pop();
-  if (arr.length < 2) { return false }
-  for (i = 0; i < arr.length; i++) {
-    for (j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] === biggest) { return true}
+  
+  function recursiveLooper(target, array){
+    if(array.length === 0){
+      return target === 0; 
     }
+    let x = array[0];
+    array = array.slice(1);
+    return recursiveLooper(target,array) || recursiveLooper(target-x,array);
   }
-  return false
-
+  return recursiveLooper(biggest,arr);
 }
    
 // keep this function call here 
