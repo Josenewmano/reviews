@@ -31,4 +31,7 @@ describe(ArrayAdditionI, () => {
   it("returns true for [6,5,5,5,5,5,5,0,2,2,2,2,3,0,0,0,0,3,2]", () => {
     expect(ArrayAdditionI([6,5,5,5,5,5,5,0,2,2,2,2,3,0,0,0,0,3,2])).toBe(true);
   })
+  it("returns true for [16,11,13,10,9,8,6,2,0,0]", () => {
+    expect(ArrayAdditionI([16,11,13,10,9,8,6,2,0,0])).toBe(true);
+  })
 })
